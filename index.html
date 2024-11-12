@@ -11,24 +11,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #8fd3f4);
-            background-size: 300% 300%;
-            animation: backgroundAnimation 10s ease infinite;
+            background-color: #000; /* Black background */
             font-family: 'Arial', sans-serif;
         }
 
         #helloScreen {
             text-align: center;
-            font-size: 3em;
-            color: #fff;
+            font-size: 4em; /* Increased text size */
+            color: #FFD700; /* Golden text color */
             animation: fadeInOut 2s ease-in-out infinite;
             transition: transform 0.5s;
-        }
-
-        @keyframes backgroundAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         @keyframes fadeInOut {
