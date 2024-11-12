@@ -1,17 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Startup Hello Screen</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Hello Screen</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #8fd3f4);
+            background-size: 300% 300%;
+            animation: backgroundAnimation 10s ease infinite;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #helloScreen {
+            text-align: center;
+            font-size: 3em;
+            color: #fff;
+            animation: fadeInOut 2s ease-in-out infinite;
+            transition: transform 0.5s;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            50% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+    </style>
 </head>
 <body>
+    <div id="helloScreen"></div>
 
-<div id="hello-screen">
-    <h1>Hello</h1>
-</div>
+    <script>
+        const greetings = [
+            "Hello", "Hola", "Bonjour", "Hallo", "Ciao",
+            "こんにちは", "안녕하세요", "你好", "नमस्ते", "Olá",
+            "Привет", "Merhaba", "ਸਤ ਸ੍ਰੀ ਅਕਾਲ", "வணக்கம்", "Salam"
+        ];
 
-<script src="script.js"></script>
+        const helloScreen = document.getElementById('helloScreen');
+        let index = 0;
+
+        function changeGreeting() {
+            helloScreen.textContent = greetings[index];
+            index = (index + 1) % greetings.length;
+        }
+
+        // Change greeting every 2 seconds
+        setInterval(changeGreeting, 2000);
+
+        // Initialize with the first greeting
+        changeGreeting();
+    </script>
 </body>
 </html>
